@@ -3,6 +3,7 @@ UI
 
 Iconos
   https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343
+  https://assetstore.unity.com/packages/2d/gui/icons/simple-icons-81515
 
 Entornos
 https://assetstore.unity.com/packages/2d/environments/pixel-fantasy-caves-152375
