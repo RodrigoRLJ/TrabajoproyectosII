@@ -31,4 +31,14 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
     }
+
+    public static void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public static void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
 }

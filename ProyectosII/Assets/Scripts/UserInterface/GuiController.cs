@@ -1,6 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UserInterface
 {
@@ -11,6 +9,7 @@ namespace UserInterface
         private void Awake()
         {
             EventSystem.ChangeFastMenuState += this.ChangeMenuStateState;
+            this.gameObject.SetActive(_menuActive);
         }
 
         private void OnDestroy()
@@ -21,6 +20,15 @@ namespace UserInterface
         private void ChangeMenuStateState()
         {
             this._menuActive = !this._menuActive;
+            if (this._menuActive)
+            {
+                GameManager.PauseGame();
+            }
+            else
+            {
+                GameManager.ResumeGame();
+            }
+
             this.gameObject.SetActive(_menuActive);
         }
     }

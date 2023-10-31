@@ -32,7 +32,7 @@ public class EventSystem : MonoBehaviour
 
     private void _checkKeyEvents()
     {
-        if (Input.GetKeyDown(key: KeyCode.W))
+        if (Input.GetKeyDown(key: KeyCode.W) || Input.GetKeyDown(key: KeyCode.Space))
             MoveUpKeyPressed?.Invoke();
 
         if (Input.GetKey(key: KeyCode.S))
