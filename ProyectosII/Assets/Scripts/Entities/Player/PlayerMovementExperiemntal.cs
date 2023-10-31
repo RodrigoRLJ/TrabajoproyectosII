@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities.Player
 {
-    public class PlayerMovement
+    public class PlayerMovementExperimental
     {
         #region Unused examples
 
@@ -61,6 +61,7 @@ namespace Entities.Player
 
 
         //Movement objects
+        private Vector2 _vector2;
         private Transform _playerTransform;
 
         //Player movement data
@@ -69,7 +70,7 @@ namespace Entities.Player
 
         #endregion
 
-        public PlayerMovement(Rigidbody2D rigidBody2D, Animator animator, PlayerSpeedStats playerSpeedStats,
+        public PlayerMovementExperimental(Rigidbody2D rigidBody2D, Animator animator, PlayerSpeedStats playerSpeedStats,
             PlayerControlStats playerControlStats)
         {
             //Initiate player components
@@ -80,6 +81,9 @@ namespace Entities.Player
             this._playerSpeedStats = playerSpeedStats;
             this._playerControlStats = playerControlStats;
 
+            //Initiate other objects
+            this._vector2 = new Vector2(x: 0f, y: 0f);
+
             //Initiate movement data
             this._accelerationAmount = 0;
             this._decelerationAmount = 0;
@@ -87,18 +91,18 @@ namespace Entities.Player
 
         #region Event subscription
 
-        public void SubscribeToEvents()
+        public void SubscribeToFunctions()
         {
-            EventSystem.Instance.MoveUpKeyPressed += this._jump;
-            //EventSystem.Instance.MoveDownKeyPressed += this._moveDown;
+            /*EventSystem.Instance.MoveUpKeyPressed += this._jump;
+            EventSystem.Instance.MoveDownKeyPressed += this._moveDown;*/
             EventSystem.Instance.MoveRightKeyPressed += this._moveRight;
             EventSystem.Instance.MoveLeftKeyPressed += this._moveLeft;
         }
 
-        public void UnsubscribeFromEvents()
+        public void UnsubscribeToFunctions()
         {
-            EventSystem.Instance.MoveUpKeyPressed -= this._jump;
-            //EventSystem.Instance.MoveDownKeyPressed -= this._moveDown;
+            /*EventSystem.Instance.MoveUpKeyPressed -= this._jump;
+            EventSystem.Instance.MoveDownKeyPressed -= this._moveDown;*/
             EventSystem.Instance.MoveRightKeyPressed -= this._moveRight;
             EventSystem.Instance.MoveLeftKeyPressed -= this._moveLeft;
         }
@@ -112,7 +116,7 @@ namespace Entities.Player
          */
         private float _getCurrentVectorX()
         {
-            return this._rigidBody2D.velocity.x;
+            return this._vector2.x;
         }
 
         /**
@@ -120,7 +124,7 @@ namespace Entities.Player
          */
         private float _getCurrentVectorY()
         {
-            return this._rigidBody2D.velocity.y;
+            return this._vector2.y;
         }
 
         /**
@@ -128,7 +132,7 @@ namespace Entities.Player
          */
         private void _changeSpeedVectorX(float newX)
         {
-            this._changeSpeedVector(newX: newX, newY: this._getCurrentVectorY());
+            this._changeSpeedVector(newX: newX, newY: this._vector2.y);
         }
 
         /**
@@ -136,7 +140,7 @@ namespace Entities.Player
          */
         private void _changeSpeedVectorY(float newY)
         {
-            this._changeSpeedVector(newX: this._getCurrentVectorX(), newY: newY);
+            this._changeSpeedVector(newX: this._vector2.x, newY: newY);
         }
 
         /**
@@ -144,16 +148,15 @@ namespace Entities.Player
          */
         private void _changeSpeedVector(float newX, float newY)
         {
-            this._rigidBody2D.velocity = new Vector2(newX, newY);
+            this._vector2.Set(newX, newY);
         }
 
         #endregion
 
         #region Horizontal movement
 
-        private void _moveRight()
+        public void _moveRight()
         {
-            this._changeSpeedVectorX(this._playerSpeedStats.playerMaxSpeed);
             //Check if it changes direction
             //***It it does, decelerate rapidly
             //***If it doesn't
@@ -162,9 +165,8 @@ namespace Entities.Player
             //*********Otherwise accelerate
         }
 
-        private void _moveLeft()
+        public void _moveLeft()
         {
-            this._changeSpeedVectorX(-this._playerSpeedStats.playerMaxSpeed);
         }
 
         //TODO: move left
@@ -184,10 +186,6 @@ namespace Entities.Player
 
         #region Verical movement
 
-        private void _jump()
-        {
-            this._changeSpeedVectorY(1);
-        }
         //TODO: limit player time on early jump release
         //TODO: player extra time to jump since grounded (Coyote time)
         //TODO: player check jumps available

@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerStats _playerStats;
+    #region Atribute declaration
 
+    [SerializeField] private PlayerStats _playerStats;
     private Animator _animator;
     private Rigidbody2D _rigidBody2D;
     private PlayerMovement _playerMovement;
+
+    #endregion
 
     // Start is called before the first frame update
     private void Start()
@@ -21,12 +24,12 @@ public class PlayerController : MonoBehaviour
             playerSpeedStats: this._playerStats.playerSpeedStats,
             playerControlStats: this._playerStats.playerControlStats);
 
-        this._playerMovement.SubscribeToFunctions();
+        this._playerMovement.SubscribeToEvents();
     }
 
     public void OnDestroy()
     {
-        this._playerMovement.UnsubscribeToFunctions();
+        this._playerMovement.UnsubscribeFromEvents();
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ namespace Entities.Player
     public class PlayerControlStats : ScriptableObject
     {
         //Cuanto tiempo como máximo puede estar saltando el jugador (si esta saltando menos tiempo asciende menos)
-        [SerializeField] public float playerMaxJumpSeconds;
+        [SerializeField] public float playerMaxJumpTime;
 
         //Cuanto tiempo tiene el jugador para saltar desde la última ez que toco suelo
         [SerializeField] public float playerCoyoteTime;

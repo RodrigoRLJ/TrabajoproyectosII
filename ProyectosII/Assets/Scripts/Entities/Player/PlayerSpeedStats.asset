@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PlayerSpeedStats
   m_EditorClassIdentifier: 
   playerAcceleration: 0
-  playerMaxSpeed: 0
+  playerMaxSpeed: 5
   playerDeceleration: 0
   playerTurnExtraForce: 0
   playerMaxFallSpeed: 0
   playerSpeedBoostOnJumpApex: 0
+  playerSpeedBoostOnJumpApexDuration: 0
