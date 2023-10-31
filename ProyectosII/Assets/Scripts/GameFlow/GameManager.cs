@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
+            //Limita los frames por segundo para que unity no se vuelva loco
+            Application.targetFrameRate = 60;
+            //Fuerza los FPS? comprobar en rendimiento.
+            QualitySettings.vSyncCount = 0;
         }
         else
         {
@@ -40,5 +44,13 @@ public class GameManager : MonoBehaviour
     public static void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    public static void QuitGame()
+    {
+#if UNITY_EDITOR // Si esta en el editor de unity cierra el modo juegp
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif //Si esta en el juego compilado sal del juego
+        Application.Quit();
     }
 }

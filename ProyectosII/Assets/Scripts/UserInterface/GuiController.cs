@@ -4,7 +4,13 @@ namespace UserInterface
 {
     public class GuiController : MonoBehaviour
     {
+        #region Atributes
+
         private bool _menuActive = false;
+
+        #endregion
+
+        #region State manager functions
 
         private void Awake()
         {
@@ -31,5 +37,22 @@ namespace UserInterface
 
             this.gameObject.SetActive(_menuActive);
         }
+
+        #endregion
+
+        #region User accesible functios
+
+        public void QuitGame()
+        {
+            Debug.Log("I'm clicked!!!");
+            GameManager.QuitGame();
+        }
+
+        public void CloseMenu()
+        {
+            this.ChangeMenuStateState();
+        }
+
+        #endregion
     }
 }
