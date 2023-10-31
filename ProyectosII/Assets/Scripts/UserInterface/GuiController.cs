@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace UserInterface
 {
@@ -51,6 +53,11 @@ namespace UserInterface
         public void CloseMenu()
         {
             this.ChangeMenuStateState();
+        }
+
+        public void GoToHomeScreen()
+        {
+            Debug.Log("There is no homescreen yet");
         }
 
         #endregion
