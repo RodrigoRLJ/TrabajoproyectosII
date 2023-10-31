@@ -4,6 +4,9 @@ namespace Entities.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        private float _playerCurrentHealth;
+        private int _playerCurrentPotions;
+
         #region Atribute declaration
 
         [SerializeField] private PlayerStats playerStats;
@@ -45,6 +48,18 @@ namespace Entities.Player
         private void Update()
         {
             this._playerMovement.UpdateActions();
+        }
+
+        private void _resetPlayerStats()
+        {
+            this._playerCurrentHealth = this.playerStats.playerInitialHealth;
+            this._playerCurrentPotions = this.playerStats.playerInitialPotions;
+        }
+
+        private void playerChangeHealth(float healthAmount)
+        {
+            this._playerCurrentHealth += healthAmount;
+            EventSystem.PlayerNewHealth(this._playerCurrentHealth);
         }
     }
 }
