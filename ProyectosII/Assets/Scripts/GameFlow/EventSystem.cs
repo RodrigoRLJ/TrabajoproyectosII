@@ -1,22 +1,23 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EventSystem : MonoBehaviour
 {
     #region Singleton guarantee
 
-    public static EventSystem Instance;
+    private static EventSystem _instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(Instance);
+            _instance = this;
+            DontDestroyOnLoad(_instance);
         }
         else
         {
-            Destroy(Instance);
+            Destroy(_instance);
         }
     }
 
@@ -27,17 +28,26 @@ public class EventSystem : MonoBehaviour
     public static event Action MoveRightKeyPressed;
     public static event Action MoveLeftKeyPressed;
     public static event Action PlayerTouchedGround;
+    public static event Action ChangeFastMenuState;
 
-    private void _checkPlayerMovement()
+    private void _checkKeyEvents()
     {
-        if (Input.GetKeyDown(name: "w"))
+        if (Input.GetKeyDown(key: KeyCode.W))
             MoveUpKeyPressed?.Invoke();
-        if (Input.GetKey(name: "s"))
+
+        if (Input.GetKey(key: KeyCode.S))
             MoveDownKeyPressed?.Invoke();
-        if (Input.GetKey(name: "d"))
+
+        if (Input.GetKey(key: KeyCode.D))
             MoveRightKeyPressed?.Invoke();
-        if (Input.GetKey(name: "a"))
+
+        if (Input.GetKey(key: KeyCode.A))
             MoveLeftKeyPressed?.Invoke();
+
+        if (Input.GetKeyUp(key: KeyCode.Escape))
+        {
+            ChangeFastMenuState?.Invoke();
+        }
     }
 
     public static void PlayerFell()
@@ -47,6 +57,6 @@ public class EventSystem : MonoBehaviour
 
     public void Update()
     {
-        this._checkPlayerMovement();
+        this._checkKeyEvents();
     }
 }
