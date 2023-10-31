@@ -54,10 +54,11 @@ namespace Entities.Player
         //Animation objects
         private Rigidbody2D _rigidBody2D;
         private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
 
         //Stat objects
-        private PlayerSpeedStats _playerSpeedStats;
-        private PlayerControlStats _playerControlStats;
+        private readonly PlayerSpeedStats _playerSpeedStats;
+        private readonly PlayerControlStats _playerControlStats;
 
 
         //Movement objects
@@ -67,14 +68,22 @@ namespace Entities.Player
         private float _accelerationAmount;
         private float _decelerationAmount;
 
+        //Player jump data
+        private int _usedJumps;
+
         #endregion
 
-        public PlayerMovement(Rigidbody2D rigidBody2D, Animator animator, PlayerSpeedStats playerSpeedStats,
+        public PlayerMovement(
+            Rigidbody2D rigidBody2D,
+            Animator animator,
+            SpriteRenderer spriteRenderer,
+            PlayerSpeedStats playerSpeedStats,
             PlayerControlStats playerControlStats)
         {
             //Initiate player components
             this._rigidBody2D = rigidBody2D;
             this._animator = animator;
+            this._spriteRenderer = spriteRenderer;
 
             //Initiate player stats
             this._playerSpeedStats = playerSpeedStats;
@@ -83,24 +92,29 @@ namespace Entities.Player
             //Initiate movement data
             this._accelerationAmount = 0;
             this._decelerationAmount = 0;
+
+            //Initiate jump data
+            this._resetJumpData();
         }
 
         #region Event subscription
 
         public void SubscribeToEvents()
         {
-            EventSystem.Instance.MoveUpKeyPressed += this._jump;
-            //EventSystem.Instance.MoveDownKeyPressed += this._moveDown;
-            EventSystem.Instance.MoveRightKeyPressed += this._moveRight;
-            EventSystem.Instance.MoveLeftKeyPressed += this._moveLeft;
+            EventSystem.MoveUpKeyPressed += this._jump;
+            //EventSystem.MoveDownKeyPressed += this._moveDown;
+            EventSystem.MoveRightKeyPressed += this._moveRight;
+            EventSystem.MoveLeftKeyPressed += this._moveLeft;
+            EventSystem.PlayerTouchedGround += this._playerTouchedGround;
         }
 
         public void UnsubscribeFromEvents()
         {
-            EventSystem.Instance.MoveUpKeyPressed -= this._jump;
-            //EventSystem.Instance.MoveDownKeyPressed -= this._moveDown;
-            EventSystem.Instance.MoveRightKeyPressed -= this._moveRight;
-            EventSystem.Instance.MoveLeftKeyPressed -= this._moveLeft;
+            EventSystem.MoveUpKeyPressed -= this._jump;
+            //EventSystem.MoveDownKeyPressed -= this._moveDown;
+            EventSystem.MoveRightKeyPressed -= this._moveRight;
+            EventSystem.MoveLeftKeyPressed -= this._moveLeft;
+            EventSystem.PlayerTouchedGround -= this._playerTouchedGround;
         }
 
         #endregion
@@ -154,6 +168,7 @@ namespace Entities.Player
         private void _moveRight()
         {
             this._changeSpeedVectorX(this._playerSpeedStats.playerMaxSpeed);
+            this._spriteRenderer.flipX = false;
             //Check if it changes direction
             //***It it does, decelerate rapidly
             //***If it doesn't
@@ -165,10 +180,9 @@ namespace Entities.Player
         private void _moveLeft()
         {
             this._changeSpeedVectorX(-this._playerSpeedStats.playerMaxSpeed);
+            this._spriteRenderer.flipX = true;
         }
 
-        //TODO: move left
-        //TODO: move right
         //TODO: player acceleration over time
         //TODO: player deceleration if not moving 
         //TODO: player cut acceleration when near max speed
@@ -184,15 +198,47 @@ namespace Entities.Player
 
         #region Verical movement
 
+        /**
+         * Activated when the player presses the jump key
+         * Change later on to take into account the time the key is pressed
+         */
         private void _jump()
         {
-            this._changeSpeedVectorY(1);
+            if (this._canJump())
+            {
+                this._usedJumps++;
+                this._changeSpeedVectorY(10);
+            }
         }
+
+        /**
+         * Effects once the player has touched the ground.
+         */
+        private void _playerTouchedGround()
+        {
+            this._resetJumpData();
+        }
+
+        /**
+         * Checks if the player still has any jump left.
+         */
+        private bool _canJump()
+        {
+            return this._usedJumps < this._playerControlStats.playerJumpsAvailable;
+        }
+
+        /**
+         * Resets the jump data to allow the player to jump again.
+         */
+        private void _resetJumpData()
+        {
+            this._usedJumps = 0;
+        }
+
         //TODO: limit player time on early jump release
         //TODO: player extra time to jump since grounded (Coyote time)
-        //TODO: player check jumps available
         //TODO: decrease player gravity on jump apex
-        //TODO: add a jump buffer to jump when you hit the ground
+        //TODO: add a jump buffer to jump when you hit the ground (the engine seems to do it fine though)
         //TODO: allow player to reach platform if gets near to it
 
         #endregion

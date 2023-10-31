@@ -54,14 +54,14 @@ namespace Entities.Player
         //Animation objects
         private Rigidbody2D _rigidBody2D;
         private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
 
         //Stat objects
-        private PlayerSpeedStats _playerSpeedStats;
-        private PlayerControlStats _playerControlStats;
+        private readonly PlayerSpeedStats _playerSpeedStats;
+        private readonly PlayerControlStats _playerControlStats;
 
 
         //Movement objects
-        private Vector2 _vector2;
         private Transform _playerTransform;
 
         //Player movement data
@@ -70,19 +70,21 @@ namespace Entities.Player
 
         #endregion
 
-        public PlayerMovementExperimental(Rigidbody2D rigidBody2D, Animator animator, PlayerSpeedStats playerSpeedStats,
+        public PlayerMovementExperimental(
+            Rigidbody2D rigidBody2D,
+            Animator animator,
+            SpriteRenderer spriteRenderer,
+            PlayerSpeedStats playerSpeedStats,
             PlayerControlStats playerControlStats)
         {
             //Initiate player components
             this._rigidBody2D = rigidBody2D;
             this._animator = animator;
+            this._spriteRenderer = spriteRenderer;
 
             //Initiate player stats
             this._playerSpeedStats = playerSpeedStats;
             this._playerControlStats = playerControlStats;
-
-            //Initiate other objects
-            this._vector2 = new Vector2(x: 0f, y: 0f);
 
             //Initiate movement data
             this._accelerationAmount = 0;
@@ -91,20 +93,22 @@ namespace Entities.Player
 
         #region Event subscription
 
-        public void SubscribeToFunctions()
+        public void SubscribeToEvents()
         {
-            /*EventSystem.Instance.MoveUpKeyPressed += this._jump;
-            EventSystem.Instance.MoveDownKeyPressed += this._moveDown;*/
-            EventSystem.Instance.MoveRightKeyPressed += this._moveRight;
-            EventSystem.Instance.MoveLeftKeyPressed += this._moveLeft;
+            EventSystem.MoveUpKeyPressed += this._jump;
+            //EventSystem.MoveDownKeyPressed += this._moveDown;
+            EventSystem.MoveRightKeyPressed += this._moveRight;
+            EventSystem.MoveLeftKeyPressed += this._moveLeft;
+            EventSystem.PlayerTouchedGround += this._playerTouchedGround;
         }
 
-        public void UnsubscribeToFunctions()
+        public void UnsubscribeFromEvents()
         {
-            /*EventSystem.Instance.MoveUpKeyPressed -= this._jump;
-            EventSystem.Instance.MoveDownKeyPressed -= this._moveDown;*/
-            EventSystem.Instance.MoveRightKeyPressed -= this._moveRight;
-            EventSystem.Instance.MoveLeftKeyPressed -= this._moveLeft;
+            EventSystem.MoveUpKeyPressed -= this._jump;
+            //EventSystem.MoveDownKeyPressed -= this._moveDown;
+            EventSystem.MoveRightKeyPressed -= this._moveRight;
+            EventSystem.MoveLeftKeyPressed -= this._moveLeft;
+            EventSystem.PlayerTouchedGround -= this._playerTouchedGround;
         }
 
         #endregion
@@ -116,7 +120,7 @@ namespace Entities.Player
          */
         private float _getCurrentVectorX()
         {
-            return this._vector2.x;
+            return this._rigidBody2D.velocity.x;
         }
 
         /**
@@ -124,7 +128,7 @@ namespace Entities.Player
          */
         private float _getCurrentVectorY()
         {
-            return this._vector2.y;
+            return this._rigidBody2D.velocity.y;
         }
 
         /**
@@ -132,7 +136,7 @@ namespace Entities.Player
          */
         private void _changeSpeedVectorX(float newX)
         {
-            this._changeSpeedVector(newX: newX, newY: this._vector2.y);
+            this._changeSpeedVector(newX: newX, newY: this._getCurrentVectorY());
         }
 
         /**
@@ -140,7 +144,7 @@ namespace Entities.Player
          */
         private void _changeSpeedVectorY(float newY)
         {
-            this._changeSpeedVector(newX: this._vector2.x, newY: newY);
+            this._changeSpeedVector(newX: this._getCurrentVectorX(), newY: newY);
         }
 
         /**
@@ -148,15 +152,17 @@ namespace Entities.Player
          */
         private void _changeSpeedVector(float newX, float newY)
         {
-            this._vector2.Set(newX, newY);
+            this._rigidBody2D.velocity = new Vector2(newX, newY);
         }
 
         #endregion
 
         #region Horizontal movement
 
-        public void _moveRight()
+        private void _moveRight()
         {
+            this._changeSpeedVectorX(this._playerSpeedStats.playerMaxSpeed);
+            this._spriteRenderer.flipX = false;
             //Check if it changes direction
             //***It it does, decelerate rapidly
             //***If it doesn't
@@ -165,8 +171,10 @@ namespace Entities.Player
             //*********Otherwise accelerate
         }
 
-        public void _moveLeft()
+        private void _moveLeft()
         {
+            this._changeSpeedVectorX(-this._playerSpeedStats.playerMaxSpeed);
+            this._spriteRenderer.flipX = true;
         }
 
         //TODO: move left
@@ -186,6 +194,15 @@ namespace Entities.Player
 
         #region Verical movement
 
+        private void _jump()
+        {
+            this._changeSpeedVectorY(5);
+        }
+
+        private void _playerTouchedGround()
+        {
+            Debug.Log("I fell!");
+        }
         //TODO: limit player time on early jump release
         //TODO: player extra time to jump since grounded (Coyote time)
         //TODO: player check jumps available

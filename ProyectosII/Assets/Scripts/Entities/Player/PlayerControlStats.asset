@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c1702da92c4ee9834a4bacb629842d, type: 3}
   m_Name: PlayerControlStats
   m_EditorClassIdentifier: 
-  playerMaxJumpSeconds: 0
+  playerMaxJumpTime: 0
   playerCoyoteTime: 0
-  playerJumpsAvailable: 0
+  playerJumpsAvailable: 2
   playerAntigravityTime: 0
   jumpBuffer: 0
   playerEdgeDetectionDistance: 0

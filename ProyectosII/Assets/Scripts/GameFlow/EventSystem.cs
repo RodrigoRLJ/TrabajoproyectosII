@@ -22,21 +22,27 @@ public class EventSystem : MonoBehaviour
 
     #endregion
 
-    public event Action MoveUpKeyPressed;
-    public event Action MoveDownKeyPressed;
-    public event Action MoveRightKeyPressed;
-    public event Action MoveLeftKeyPressed;
+    public static event Action MoveUpKeyPressed;
+    public static event Action MoveDownKeyPressed;
+    public static event Action MoveRightKeyPressed;
+    public static event Action MoveLeftKeyPressed;
+    public static event Action PlayerTouchedGround;
 
     private void _checkPlayerMovement()
     {
-        if (Input.GetKey("w"))
+        if (Input.GetKeyDown(name: "w"))
             MoveUpKeyPressed?.Invoke();
-        if (Input.GetKey("s"))
+        if (Input.GetKey(name: "s"))
             MoveDownKeyPressed?.Invoke();
-        if (Input.GetKey("d"))
+        if (Input.GetKey(name: "d"))
             MoveRightKeyPressed?.Invoke();
-        if (Input.GetKey("a"))
+        if (Input.GetKey(name: "a"))
             MoveLeftKeyPressed?.Invoke();
+    }
+
+    public static void PlayerFell()
+    {
+        PlayerTouchedGround?.Invoke();
     }
 
     public void Update()
