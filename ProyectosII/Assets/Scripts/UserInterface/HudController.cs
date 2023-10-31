@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entities.Player;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class HudController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Slider _slider;
+
+    private void Awake()
     {
-        
+        EventSystem.PlayerHealthChanged += UpdateHealthValue;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        EventSystem.PlayerHealthChanged -= UpdateHealthValue;
+    }
+
+    private void UpdateHealthValue(float playerMaxHealth, float playerCurrentHealth)
+    {
+        this._slider.value = (playerCurrentHealth / playerMaxHealth);
     }
 }

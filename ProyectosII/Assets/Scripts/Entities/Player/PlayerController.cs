@@ -30,6 +30,7 @@ namespace Entities.Player
                 playerControlStats: this.playerStats.playerControlStats);
 
             this._playerMovement.SubscribeToEvents();
+            this._resetPlayerStats();
         }
 
         private void _getChildComponents()
@@ -54,12 +55,14 @@ namespace Entities.Player
         {
             this._playerCurrentHealth = this.playerStats.playerInitialHealth;
             this._playerCurrentPotions = this.playerStats.playerInitialPotions;
+            this.PlayerChangeHealth(0f);
         }
 
-        private void playerChangeHealth(float healthAmount)
+        public void PlayerChangeHealth(float healthAmount)
         {
             this._playerCurrentHealth += healthAmount;
-            EventSystem.PlayerNewHealth(this._playerCurrentHealth);
+            EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
+            Debug.Log(this._playerCurrentHealth);
         }
     }
 }

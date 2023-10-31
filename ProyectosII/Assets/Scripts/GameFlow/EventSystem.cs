@@ -29,7 +29,7 @@ public class EventSystem : MonoBehaviour
     public static event Action MoveLeftKeyPressed;
     public static event Action PlayerTouchedGround;
     public static event Action ChangeFastMenuState;
-    public static event Action<float> PlayerHealthChanged;
+    public static event Action<float, float> PlayerHealthChanged;
 
     private void _checkKeyEvents()
     {
@@ -56,9 +56,9 @@ public class EventSystem : MonoBehaviour
         PlayerTouchedGround?.Invoke();
     }
 
-    public static void PlayerNewHealth(float playerCurrentHealth)
+    public static void PlayerNewHealth(float playerMaxHealth, float playerCurrentHealth)
     {
-        PlayerHealthChanged?.Invoke(playerCurrentHealth);
+        PlayerHealthChanged?.Invoke(playerMaxHealth, playerCurrentHealth);
     }
 
     public void Update()
