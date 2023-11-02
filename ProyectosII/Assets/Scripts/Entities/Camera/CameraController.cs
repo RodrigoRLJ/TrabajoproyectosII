@@ -18,7 +18,15 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         //Busca el componente transform del jugador y se lo asigna a su atributo.
-        this._targetTransform = GameObject.FindWithTag("Player").transform;
+        try
+        {
+            this._targetTransform = GameObject.FindWithTag("Player").transform;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("No hay hay jugador en la escena");
+            throw;
+        }
     }
 
     //Se usa el LateUpdate porque siempre se llama después del Update
