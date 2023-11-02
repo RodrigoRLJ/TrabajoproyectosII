@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba0771b56c86d8b499c55de0c6514af5
+guid: 737ddf086ce72df469aad6c19b718918
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RUNspritesheet_0
+      name: jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b0c63fdf304574bb4b7dc640cb4e72
-      internalID: 348282853
+      spriteID: 40ece91cb0ef1a5488c5951133cfd76c
+      internalID: 1917495884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RUNspritesheet_1
+      name: jump_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9525efba45654384e94ba5305f4cb4c7
-      internalID: -1369493678
+      spriteID: e036ddbffdf7e794fae0136b77ef6be5
+      internalID: -1107671483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RUNspritesheet_2
+      name: jump_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a001516ec03226e4eab60d3b374cf2d5
-      internalID: 1322424011
+      spriteID: 7ef717e1bde61a14daa6b49bef0b9ccb
+      internalID: -1156241129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RUNspritesheet_3
+      name: jump_3
       rect:
         serializedVersion: 2
         x: 3000
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3305e892e8bcd794080be0e9da23a6d8
-      internalID: 1326271532
+      spriteID: a6b6a695c4a49d140bf6f96471ec5ee7
+      internalID: -1129454151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RUNspritesheet_4
+      name: jump_4
       rect:
         serializedVersion: 2
         x: 4000
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dddd4df11618fcf4194af3541af80808
-      internalID: 1298255220
+      spriteID: 10c94e7ea136f4a459e86a06e4c70897
+      internalID: -646741784
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RUNspritesheet_0: 348282853
-      RUNspritesheet_1: -1369493678
-      RUNspritesheet_2: 1322424011
-      RUNspritesheet_3: 1326271532
-      RUNspritesheet_4: 1298255220
+      jump_0: 1917495884
+      jump_1: -1107671483
+      jump_2: -1156241129
+      jump_3: -1129454151
+      jump_4: -646741784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
