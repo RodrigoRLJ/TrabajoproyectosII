@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +47,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public static void ChangeScene(string sceneName)
+    {
+        SceneManager.UnloadScene(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(sceneName: sceneName);
+    }
+
 
     public static void QuitGame()
     {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMaxJumpTime: 0
   playerCoyoteTime: 0
-  playerJumpsAvailable: 2
+  playerJumpsAvailable: 1
   playerAntigravityTime: 0
   jumpBuffer: 0
   playerEdgeDetectionDistance: 0

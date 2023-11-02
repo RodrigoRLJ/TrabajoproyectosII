@@ -57,7 +57,7 @@ namespace UserInterface
 
         public void GoToHomeScreen()
         {
-            Debug.Log("There is no homescreen yet");
+            GameManager.ChangeScene("MainMenu");
         }
 
         #endregion
