@@ -25,7 +25,6 @@ public class CameraController : MonoBehaviour
         catch (Exception e)
         {
             Console.WriteLine("No hay hay jugador en la escena");
-            throw;
         }
     }
 
@@ -33,7 +32,7 @@ public class CameraController : MonoBehaviour
     //De este forma el jugador recalcula su posición, y solo después la cámara empieza a moverse.
     private void LateUpdate()
     {
-        if (this._targetTransform is not null)
+        try
         {
             //Calcula la posición objetivo de la cámara, se basa en la posición del jugador y el offset (desviación) que queremos
             //El menos 1 es fijo porque sino la camara se mete en el personaje y no se ve nada.
@@ -41,6 +40,10 @@ public class CameraController : MonoBehaviour
 
             //Cambia la posición de la cámara a la nueva posición con la función SmoothDamp, que mueve un objeto de posición X a Y gradualmente y sin pasarse.
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, damping);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("No hay hay jugador en la escena");
         }
     }
 }
