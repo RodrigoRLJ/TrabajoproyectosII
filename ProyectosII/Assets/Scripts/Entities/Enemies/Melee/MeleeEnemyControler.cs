@@ -23,18 +23,13 @@ public class MeleeEnemyControler : MonoBehaviour
     {
         this.Player = GameObject.FindWithTag("Player").transform;
         RigidBody2D = GetComponent<Rigidbody2D>();
+       
     }
     //void Init()
     //{
     //GameObject waypoints = new GameObject("waypoints");
 
-    //GameObject p1 = new GameObject("coordenada1");
-    //p1.transform.SetParent(waypoints.transform);
-    //GameObject p2 = new GameObject("coordenada2");
-    //p2.transform.SetParent(waypoints.transform);
-    //coordenada = new List<Transform>();
-    //coordenada.Add(p1.transform);
-    //coordenada.Add(p2.transform);
+    //
     //}
     // Update is called once per frame
     void Update()
