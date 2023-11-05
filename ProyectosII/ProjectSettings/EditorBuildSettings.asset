@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scripts/Scenes/Eduardo-Development.unity
+    path: Assets/Scenes/Eduardo-Development.unity
     guid: 46dd77a379843ee4db7f6358a618a808
   m_configObjects: {}

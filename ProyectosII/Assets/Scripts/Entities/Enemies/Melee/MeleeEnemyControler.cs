@@ -1,5 +1,4 @@
 using Entities.EnemyMelee;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,32 +13,29 @@ public class MeleeEnemyControler : MonoBehaviour
 
     int siguienteCoordenada = 0;
     int cambioCoordenada = 1;
-    int distancia = 8;    
+    int distancia = 8;
     int velocidadpatrullando = 1;
+
     int velocidadAtacando = 3;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.Player = GameObject.FindWithTag("Player").transform;
         RigidBody2D = GetComponent<Rigidbody2D>();
-
+       
     }
     //void Init()
     //{
     //GameObject waypoints = new GameObject("waypoints");
 
-    //GameObject p1 = new GameObject("coordenada1");
-    //p1.transform.SetParent(waypoints.transform);
-    //GameObject p2 = new GameObject("coordenada2");
-    //p2.transform.SetParent(waypoints.transform);
-    //coordenada = new List<Transform>();
-    //coordenada.Add(p1.transform);
-    //coordenada.Add(p2.transform);
+    //
     //}
     // Update is called once per frame
     void Update()
     {
         transform.LookAt(Player);
-        if ( Vector3.Distance(transform.position, Player.position) >= distancia)
+        if (Vector3.Distance(transform.position, Player.position) >= distancia)
         {
             RigidBody2D.velocity = new Vector2(velocidadAtacando, RigidBody2D.velocity.y);
 
@@ -47,20 +43,17 @@ public class MeleeEnemyControler : MonoBehaviour
             {
                 //atacar
             }
-
         }
         else
         {
             patrulla();
-            
-
         }
     }
 
     void patrulla()
     {
         Transform objetivo = coordenada[siguienteCoordenada];
-        if(objetivo.transform.position.x > transform.position.x)
+        if (objetivo.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -69,17 +62,20 @@ public class MeleeEnemyControler : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, objetivo.position, velocidadpatrullando * Time.deltaTime);
-        if(Vector3.Distance(transform.position,objetivo.position) <1f)
+        transform.position =
+            Vector2.MoveTowards(transform.position, objetivo.position, velocidadpatrullando * Time.deltaTime);
+        if (Vector3.Distance(transform.position, objetivo.position) < 1f)
         {
             if (siguienteCoordenada == 1)
             {
                 cambioCoordenada = -1;
             }
+
             if (siguienteCoordenada == 0)
             {
                 cambioCoordenada = 1;
             }
+
             siguienteCoordenada += cambioCoordenada;
         }
     }
