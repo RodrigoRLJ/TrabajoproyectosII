@@ -8,7 +8,7 @@ namespace UserInterface
     {
         #region Atributes
 
-        private bool _menuActive = false;
+        private bool _menuActive;
 
         #endregion
 
@@ -17,7 +17,8 @@ namespace UserInterface
         private void Awake()
         {
             EventSystem.ChangeFastMenuState += this.ChangeMenuStateState;
-            this.gameObject.SetActive(_menuActive);
+            this._menuActive = true;
+            this.ChangeMenuStateState();
         }
 
         private void OnDestroy()
@@ -46,7 +47,6 @@ namespace UserInterface
 
         public void QuitGame()
         {
-            Debug.Log("I'm clicked!!!");
             GameManager.QuitGame();
         }
 

@@ -17,6 +17,8 @@ namespace Entities.Player
 
         #endregion
 
+        #region Object initialization and destruction
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -45,12 +47,6 @@ namespace Entities.Player
             this._playerMovement.UnsubscribeFromEvents();
         }
 
-        // Update is called once per frame
-        private void Update()
-        {
-            this._playerMovement.UpdateActions();
-        }
-
         private void _resetPlayerStats()
         {
             this._playerCurrentHealth = this.playerStats.playerInitialHealth;
@@ -58,11 +54,23 @@ namespace Entities.Player
             this.PlayerChangeHealth(0f);
         }
 
+        #endregion
+
+        // Update is called once per frame
+        private void Update()
+        {
+            this._playerMovement.UpdateActions();
+        }
+
         public void PlayerChangeHealth(float healthAmount)
         {
             this._playerCurrentHealth += healthAmount;
+            if (this._playerCurrentHealth > this.playerStats.playerInitialHealth)
+            {
+                this._playerCurrentHealth = this.playerStats.playerInitialHealth;
+            }
+
             EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
-            Debug.Log(this._playerCurrentHealth);
         }
     }
 }

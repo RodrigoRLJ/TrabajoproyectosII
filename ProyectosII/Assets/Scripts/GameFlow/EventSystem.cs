@@ -40,13 +40,15 @@ public class EventSystem : MonoBehaviour
             MoveDownKeyPressed?.Invoke();
 
         if (Input.GetKey(key: KeyCode.D))
-            MoveRightKeyPressed?.Invoke();
+            Debug.Log("FOrward!!!!!");
+        MoveRightKeyPressed?.Invoke();
 
         if (Input.GetKey(key: KeyCode.A))
             MoveLeftKeyPressed?.Invoke();
 
         if (Input.GetKeyUp(key: KeyCode.Escape))
         {
+            Debug.Log("Ezcapingg");
             ChangeFastMenuState?.Invoke();
         }
     }
