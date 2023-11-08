@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4945045082398317844}
   - component: {fileID: 1429134971741144004}
   - component: {fileID: 1223914094276903956}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenuTitle_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8422703082290489084}
   - component: {fileID: 1111748339869630591}
   - component: {fileID: 7070026851821074831}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MainMenu_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4281205343110301698}
   - component: {fileID: 377030066654860940}
   - component: {fileID: 7794584652006895854}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Menu_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 3082837458486948429}
   - component: {fileID: 4002008974835543630}
   - component: {fileID: 7880433331615926304}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: QuitMenu_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 8123241034678988835}
   - component: {fileID: 3421357660228551335}
   - component: {fileID: 2237768509337286320}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,8 +563,8 @@ GameObject:
   - component: {fileID: 3279054844852276417}
   - component: {fileID: 1743131750245197998}
   - component: {fileID: 4893625495136517453}
-  - component: {fileID: 5444498551633046481}
-  m_Layer: 5
+  - component: {fileID: 6573034964156618793}
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,23 +639,14 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &5444498551633046481
-MonoBehaviour:
+--- !u!222 &6573034964156618793
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713737903757969734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  m_CullTransparentMesh: 1
 --- !u!1 &7456164747287102159
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +659,7 @@ GameObject:
   - component: {fileID: 5725057190915165941}
   - component: {fileID: 3717403532909414656}
   - component: {fileID: 2132339079801888441}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Quit_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +791,7 @@ GameObject:
   - component: {fileID: 1645786966546270482}
   - component: {fileID: 4783017033735075750}
   - component: {fileID: 4325166891106400020}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +872,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.7
+  m_fontSize: 21.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -934,7 +925,7 @@ GameObject:
   - component: {fileID: 6142230748281481690}
   - component: {fileID: 8768648952442322758}
   - component: {fileID: 3159948449242843783}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1006,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.2
+  m_fontSize: 20.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1067,7 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7537385622771969234}
   - component: {fileID: 7324996850189759926}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

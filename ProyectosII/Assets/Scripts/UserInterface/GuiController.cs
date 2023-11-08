@@ -57,6 +57,7 @@ namespace UserInterface
 
         public void GoToHomeScreen()
         {
+            Debug.Log("Clicked");
             GameManager.ChangeScene("MainMenu");
         }
 
