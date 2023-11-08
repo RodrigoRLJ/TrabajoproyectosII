@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
 
     public static void ChangeScene(string sceneName)
     {
-        SceneManager.UnloadScene(SceneManager.GetActiveScene());
+        //SceneManager.UnloadScene(SceneManager.GetActiveScene());
+        Debug.Log("Scene being loaded " + sceneName);
         SceneManager.LoadScene(sceneName: sceneName);
     }
 

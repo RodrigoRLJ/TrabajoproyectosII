@@ -4198,6 +4198,18 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 986491012024094499, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073488107979578941, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073488107979578941, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2368694100101766886, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_Size.x
       value: 20
