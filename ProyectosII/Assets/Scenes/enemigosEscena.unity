@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 10450389}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Terreno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +338,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776994480385170990, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.099975586
+      objectReference: {fileID: 0}
+    - target: {fileID: 945536366224987033, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9399414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301013422543555971, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -462.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301013422543555971, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -202.41
+      objectReference: {fileID: 0}
     - target: {fileID: 3154397787087418464, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -349,6 +365,10 @@ PrefabInstance:
     - target: {fileID: 4890316230230332439, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_Name
       value: SceneBasics
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444401644960517783, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9399414
       objectReference: {fileID: 0}
     - target: {fileID: 7090082270207509514, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_fontSize
@@ -521,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 1312203792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.44, y: -0.3, z: 0}
+  m_LocalPosition: {x: 9.44, y: -0.24, z: 0}
   m_LocalScale: {x: 1.0663, y: 1.3481, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -591,8 +611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a0b77e5ff30c24aaf4d3552daffeba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
-  coordenada: []
   Player: {fileID: 0}
   Terreno: {fileID: 0}
 --- !u!95 &1312203796
@@ -605,7 +623,7 @@ Animator:
   m_GameObject: {fileID: 1312203792}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 68555cc7381816a4b8e2742db37c34de, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85bd361a0bf30544b850a9e0d2fd57f5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -648,7 +666,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011657596, y: -0.15675113}
+  m_Offset: {x: 0, y: -0.15675113}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
