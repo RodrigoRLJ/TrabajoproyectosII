@@ -27,17 +27,6 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     public static void PauseGame()
     {
         Time.timeScale = 0;
@@ -50,7 +39,8 @@ public class GameManager : MonoBehaviour
 
     public static void ChangeScene(string sceneName)
     {
-        SceneManager.UnloadScene(SceneManager.GetActiveScene());
+        //SceneManager.UnloadScene(SceneManager.GetActiveScene());
+        Debug.Log("Scene being loaded " + sceneName);
         SceneManager.LoadScene(sceneName: sceneName);
     }
 

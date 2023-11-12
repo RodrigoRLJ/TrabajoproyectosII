@@ -4,25 +4,6 @@ using UnityEngine.UIElements;
 
 public class EventSystem : MonoBehaviour
 {
-    #region Singleton guarantee
-
-    private static EventSystem _instance;
-
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(_instance);
-        }
-        else
-        {
-            Destroy(_instance);
-        }
-    }
-
-    #endregion
-
     public static event Action MoveUpKeyPressed;
     public static event Action MoveDownKeyPressed;
     public static event Action MoveRightKeyPressed;
