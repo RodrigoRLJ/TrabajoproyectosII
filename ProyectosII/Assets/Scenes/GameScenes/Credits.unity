@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 1140861801}
   - component: {fileID: 1140861800}
   m_Layer: 5
-  m_Name: Credi3
+  m_Name: Credit3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
