@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemigoMele
+  - Terreno
   layers:
   - Default
   - TransparentFX
