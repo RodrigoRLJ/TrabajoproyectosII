@@ -51,7 +51,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
     void patrulla()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, 0.075f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.075f);
         if (hit.collider == null)
         {
             if (mirarIzquierda == true)
@@ -69,7 +69,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 mirarIzquierda = true;
             }
         }
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector3.forward, 0.075f);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right, 0.075f);
         if (hit2.collider == Terreno)
         {
             if (mirarIzquierda == true)
@@ -87,7 +87,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 mirarIzquierda = true;
             }
         }
-        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, Vector3.back, 0.075f);
+        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, Vector2.left, 0.075f);
         if (hit3.collider == Terreno)
         {
             if (mirarIzquierda == true)
