@@ -9,7 +9,9 @@ public class colisionManzana : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().PlayerChangeHealth(+10);
+            //acesso a componente PlayerController y su metodo PlayerChangeHealy 
+            other.GetComponent<PlayerController>().PlayerChangeHealth(+50);
+            Destroy(gameObject);
         }
     }
 }
