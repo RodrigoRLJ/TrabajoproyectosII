@@ -5,7 +5,7 @@ using Entities.Player;
 
 public class colisionManzana : MonoBehaviour
 {
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -13,5 +13,7 @@ public class colisionManzana : MonoBehaviour
             other.GetComponent<PlayerController>().PlayerChangeHealth(+50);
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }
