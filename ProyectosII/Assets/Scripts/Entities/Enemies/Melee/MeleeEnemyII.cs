@@ -105,9 +105,22 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 mirarIzquierda = true;
             }
         }
-        if ()
+        if (hit.collider != null && hit2.collider != Terreno && hit3.collider != Terreno)
         {
-
+            if (mirarIzquierda == false)
+            {
+                RigidBody2D.velocity = new Vector2(velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                mirarIzquierda = false;
+            }
+            if (mirarIzquierda == true)
+            {
+                RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                mirarIzquierda = true;
+            }
         }
     }
 }
