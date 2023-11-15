@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 
 namespace Entities.Player
@@ -69,7 +70,10 @@ namespace Entities.Player
         private float _decelerationAmount;
 
         //Player jump data
+        public const double MIN_JUMP_TIME = 0.10;
         private int _usedJumps;
+        private double _timeSinceJump;
+        private bool _jumped;
 
         #endregion
 
@@ -167,6 +171,8 @@ namespace Entities.Player
 
         private void _moveRight()
         {
+            this._animator.SetBool("isRunning", true);
+
             this._changeSpeedVectorX(this._playerSpeedStats.playerMaxSpeed);
             this._spriteRenderer.flipX = false;
             //Check if it changes direction
@@ -204,10 +210,14 @@ namespace Entities.Player
          */
         private void _jump()
         {
-            if (this._canJump())
+            if (this._CheckcanJump())
             {
+                this._animator.SetBool("jumps", true);
                 this._usedJumps++;
                 this._changeSpeedVectorY(10);
+                this._timeSinceJump = 0D;
+                this._jumped = true;
+                Debug.Log("I jumped on : " + Time.time);
             }
         }
 
@@ -222,9 +232,10 @@ namespace Entities.Player
         /**
          * Checks if the player still has any jump left.
          */
-        private bool _canJump()
+        private bool _CheckcanJump()
         {
-            return this._usedJumps < this._playerControlStats.playerJumpsAvailable;
+            return (this._usedJumps < this._playerControlStats.playerJumpsAvailable) /* &&
+                   (this._timeSinceJump > PlayerMovement.MIN_JUMP_TIME)*/;
         }
 
         /**
@@ -233,6 +244,8 @@ namespace Entities.Player
         private void _resetJumpData()
         {
             this._usedJumps = 0;
+            this._timeSinceJump = 0;
+            this._jumped = false;
         }
 
         //TODO: limit player time on early jump release
@@ -245,6 +258,15 @@ namespace Entities.Player
 
         public void UpdateActions()
         {
+            if (this._jumped)
+            {
+                this._timeSinceJump += Time.deltaTime;
+
+                if (this._timeSinceJump > 0.10)
+                {
+                    this._animator.SetBool("jumps", false);
+                }
+            }
         }
     }
 }

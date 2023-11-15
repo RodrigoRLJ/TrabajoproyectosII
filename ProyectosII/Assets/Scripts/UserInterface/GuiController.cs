@@ -57,8 +57,12 @@ namespace UserInterface
 
         public void GoToHomeScreen()
         {
-            Debug.Log("Clicked");
-            GameManager.ChangeScene("MainMenu");
+            GameManager.ChangeScene(SceneRecords.MAIN_MENU_SCREEN);
+        }
+
+        public void GoToLevelSelector()
+        {
+            GameManager.ChangeScene(SceneRecords.LEVE_SELECTOR_SCREEN);
         }
 
         #endregion
