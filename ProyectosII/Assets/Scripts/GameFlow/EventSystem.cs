@@ -10,7 +10,7 @@ public class EventSystem : MonoBehaviour
 
     private void _checkKeyEvents()
     {
-        if (Input.GetKeyUp(key: KeyCode.Escape))
+        if (Input.GetKeyDown(key: KeyCode.Escape))
         {
             ChangeFastMenuState?.Invoke();
         }
@@ -24,5 +24,10 @@ public class EventSystem : MonoBehaviour
     public static void PlayerNewHealth(float playerMaxHealth, float playerCurrentHealth)
     {
         PlayerHealthChanged?.Invoke(playerMaxHealth, playerCurrentHealth);
+    }
+
+    public void Update()
+    {
+        this._checkKeyEvents();
     }
 }
