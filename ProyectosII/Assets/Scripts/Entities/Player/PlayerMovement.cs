@@ -212,7 +212,7 @@ namespace Entities.Player
         {
             if (this._CheckcanJump())
             {
-                this._animator.SetBool("jumps", true);
+                this._animator.SetBool("startsJump", true);
                 this._usedJumps++;
                 this._changeSpeedVectorY(10);
                 this._timeSinceJump = 0D;
@@ -264,7 +264,8 @@ namespace Entities.Player
 
                 if (this._timeSinceJump > 0.10)
                 {
-                    this._animator.SetBool("jumps", false);
+                    this._animator.SetBool("startsJump", false);
+                    this._animator.SetBool("doesJump", true);
                 }
             }
         }

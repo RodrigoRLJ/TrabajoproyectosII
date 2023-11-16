@@ -7,7 +7,7 @@ namespace Entities.Player
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.GetComponent<TilemapCollider2D>())
+            if (other.gameObject.CompareTag("Terreno"))
             {
                 EventSystem.PlayerFell();
             }
