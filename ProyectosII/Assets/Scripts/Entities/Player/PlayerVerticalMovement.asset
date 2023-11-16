@@ -15,5 +15,5 @@ MonoBehaviour:
   jumps: 1
   minJumpForce: 5
   maxJumpForce: 13
-  jumpChargeSpeed: 8
+  jumpChargeSpeed: 9
   playerMaxFallSpeed: 0

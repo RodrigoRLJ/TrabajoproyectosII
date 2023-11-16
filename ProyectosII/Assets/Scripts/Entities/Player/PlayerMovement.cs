@@ -54,8 +54,8 @@ namespace Entities.Player
 
         public void UpdateActions()
         {
-            this._lateralMovement.UpdateActions();
             this._verticalMovement.UpdateActions();
+            this._lateralMovement.UpdateActions();
         }
     }
 }

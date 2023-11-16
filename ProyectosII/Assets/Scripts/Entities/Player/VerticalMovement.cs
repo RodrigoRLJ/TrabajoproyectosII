@@ -31,6 +31,8 @@ public class VerticalMovement
      */
     private int _jumpsLeft;
 
+    private bool _refreshAnims;
+
     #endregion
 
     public VerticalMovement(
@@ -48,6 +50,7 @@ public class VerticalMovement
         this._resetChargeTime();
         this._jumpState = JumpStates.NotJumping;
         this._jumpsLeft = this._verticalMovementStats.jumps;
+        this._refreshAnims = false;
 
         this._susbscribeEvents();
     }
@@ -110,6 +113,7 @@ public class VerticalMovement
         this._loseJump();
         this._applyJumpForce();
         this._jumpState = JumpStates.NotJumping;
+        this._refreshAnims = true;
     }
 
     private void _loseJump()
@@ -172,6 +176,12 @@ public class VerticalMovement
 
     public void UpdateActions()
     {
+        if (this._refreshAnims)
+        {
+            this._refreshAnims = false;
+            this._changeAnimation();
+        }
+
         bool hasCharged = false;
         if (Input.GetKey(key: KeyCode.W) || Input.GetKeyDown(key: KeyCode.Space))
         {
