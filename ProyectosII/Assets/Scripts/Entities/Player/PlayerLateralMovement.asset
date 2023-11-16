@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04ef4bff929346fa8dadb64e0d0f8691, type: 3}
-  m_Name: PlayerSpeedStats
+  m_Name: PlayerLateralMovement
   m_EditorClassIdentifier: 
   playerAcceleration: 0
-  playerMaxSpeed: 5
+  playerMaxSpeed: 0
   playerDeceleration: 0
   playerTurnExtraForce: 0
-  playerMaxFallSpeed: 0
-  playerSpeedBoostOnJumpApex: 0
-  playerSpeedBoostOnJumpApexDuration: 0

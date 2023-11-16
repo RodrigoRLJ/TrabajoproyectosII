@@ -11,7 +11,7 @@ namespace Entities.Player
         //Cantidad de pociones iniciales del jugador
         [SerializeField] public int playerInitialPotions;
 
-        [SerializeField] public PlayerSpeedStats playerSpeedStats;
-        [SerializeField] public PlayerControlStats playerControlStats;
+        [SerializeField] public PlayerLateralMovement playerLateralMovementStats;
+        [SerializeField] public PlayerVerticalMovement playerVerticalMovementStats;
     }
 }

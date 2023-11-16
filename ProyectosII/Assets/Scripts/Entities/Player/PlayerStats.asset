@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInitialHealth: 100
   playerInitialPotions: 2
-  playerSpeedStats: {fileID: 11400000, guid: c4578f141d11f8d4db8f7849fd01aafc, type: 2}
-  playerControlStats: {fileID: 11400000, guid: 4cf1b353c104d5b47b34a4fbbebd150e, type: 2}
+  playerLateralMovementStats: {fileID: 0}
+  playerVerticalMovementStats: {fileID: 0}
