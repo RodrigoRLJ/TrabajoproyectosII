@@ -15,7 +15,6 @@ namespace Entities.Player
         private SpriteRenderer _spriteRenderer;
         private PlayerMovement _playerMovement;
         private Transform _transform;
-        private PlayerFeetController _playerFeet;
 
         #endregion
 
@@ -32,15 +31,13 @@ namespace Entities.Player
                 spriteRenderer: this._spriteRenderer,
                 lateralMovementStats: this.playerStats.playerLateralMovementStats,
                 verticalMovementStats: this.playerStats.playerVerticalMovementStats,
-                transform: this._transform,
-                playerFeet: this._playerFeet);
+                transform: this._transform);
 
             this._resetPlayerStats();
         }
 
         private void _getChildComponents()
         {
-            this._playerFeet = GetComponentInChildren<PlayerFeetController>();
             this._rigidBody2D = GetComponent<Rigidbody2D>();
             this._animator = GetComponent<Animator>();
             this._spriteRenderer = GetComponent<SpriteRenderer>();

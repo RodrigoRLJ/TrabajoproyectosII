@@ -24,8 +24,7 @@ namespace Entities.Player
             SpriteRenderer spriteRenderer,
             PlayerLateralMovement lateralMovementStats,
             PlayerVerticalMovement verticalMovementStats,
-            Transform transform,
-            PlayerFeetController playerFeet)
+            Transform transform)
         {
             //Initiate player components
             this._playerTransform = transform;
@@ -41,11 +40,9 @@ namespace Entities.Player
 
             this._verticalMovement = new VerticalMovement(
                 animator: animator,
-                spriteRenderer: spriteRenderer,
                 verticalMovementStats: verticalMovementStats,
                 vectorController: this._vectorController,
-                lateralMovement: this._lateralMovement,
-                playerFeet: playerFeet
+                lateralMovement: this._lateralMovement
             );
         }
 

@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c1702da92c4ee9834a4bacb629842d, type: 3}
   m_Name: PlayerVerticalMovement
   m_EditorClassIdentifier: 
-  playerMaxJumpTime: 0
-  playerCoyoteTime: 0
-  playerJumpsAvailable: 0
-  playerAntigravityTime: 0
-  jumpBuffer: 0
-  playerEdgeDetectionDistance: 0
+  jumps: 2
+  minJumpForce: 10
+  maxJumpForce: 14
+  jumpChargeSpeed: 3
   playerMaxFallSpeed: 0
-  playerSpeedBoostOnJumpApex: 0
-  playerSpeedBoostOnJumpApexDuration: 0

@@ -7,7 +7,6 @@ public class VerticalMovement
 
     //Animation objects
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
 
     //Stats objects
     private readonly PlayerVerticalMovement _verticalMovementStats;
@@ -15,7 +14,6 @@ public class VerticalMovement
     //Controller objects
     private VectorController _vectorController;
     private LateralMovement _lateralMovement;
-    private PlayerFeetController _playerFeet;
 
     //Variables
     /**
@@ -37,18 +35,19 @@ public class VerticalMovement
 
     public VerticalMovement(
         Animator animator,
-        SpriteRenderer spriteRenderer,
         PlayerVerticalMovement verticalMovementStats,
         VectorController vectorController,
-        LateralMovement lateralMovement,
-        PlayerFeetController playerFeet
+        LateralMovement lateralMovement
     )
     {
         this._animator = animator;
-        this._spriteRenderer = spriteRenderer;
         this._verticalMovementStats = verticalMovementStats;
         this._vectorController = vectorController;
         this._lateralMovement = lateralMovement;
+
+        this._resetChargeTime();
+        this._jumpState = JumpStates.NotJumping;
+        this._jumpsLeft = this._verticalMovementStats.jumps;
 
         this._susbscribeEvents();
     }
@@ -102,10 +101,21 @@ public class VerticalMovement
     {
         this._jumpState = JumpStates.ReleaseJump;
         this._changeAnimation();
+        this._endJumpAction();
+    }
+
+    private void _endJumpAction()
+    {
         this._lateralMovement.AllowMovement();
+        this._loseJump();
         this._applyJumpForce();
-        this._jumpsLeft--;
         this._jumpState = JumpStates.NotJumping;
+    }
+
+    private void _loseJump()
+
+    {
+        this._jumpsLeft--;
     }
 
     private void _applyJumpForce()
@@ -117,7 +127,8 @@ public class VerticalMovement
     {
         float jumpForce;
 
-        jumpForce = (float)this._timeCharging * this._verticalMovementStats.jumpChargeSpeed;
+        jumpForce = (float)this._timeCharging * this._verticalMovementStats.jumpChargeSpeed +
+                    this._verticalMovementStats.minJumpForce;
 
         if (jumpForce > this._verticalMovementStats.maxJumpForce)
         {
@@ -128,8 +139,6 @@ public class VerticalMovement
             jumpForce = this._verticalMovementStats.minJumpForce;
         }
 
-        Debug.Log("Applying jump force: " + jumpForce);
-
         return jumpForce;
     }
 
@@ -139,7 +148,7 @@ public class VerticalMovement
      */
     private void _jump()
     {
-        if (this._jumpsLeft == 0)
+        if (this._jumpsLeft <= 0)
         {
             return;
         }
