@@ -43,6 +43,7 @@ namespace Entities.Player
             this._spriteRenderer = GetComponent<SpriteRenderer>();
             this._transform = GetComponent<Transform>();
         }
+       
 
         private void _resetPlayerStats()
         {
@@ -59,6 +60,9 @@ namespace Entities.Player
                 this._playerCurrentHealth = this.playerStats.playerInitialHealth;
             }
 
+            /*if (this._playerCurrentHealth <= 0) { 
+            }*/
+
             EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
             Debug.Log(this._playerCurrentHealth);
         }
@@ -71,7 +75,7 @@ namespace Entities.Player
         #endregion
 
         // Update is called once per frame
-        private void Update()
+        public void Update()
         {
             this._playerMovement.UpdateActions();
         }
