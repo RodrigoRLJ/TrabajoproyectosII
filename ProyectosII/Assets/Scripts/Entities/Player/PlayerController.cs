@@ -64,7 +64,6 @@ namespace Entities.Player
             }*/
 
             EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
-            Debug.Log(this._playerCurrentHealth);
         }
 
         public void RelocatePlayer(Transform transform)
