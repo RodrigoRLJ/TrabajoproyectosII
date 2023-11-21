@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6917526033106326533}
   - component: {fileID: 8839018237504378313}
   - component: {fileID: 2382436597269828781}
-  - component: {fileID: 5093212058775332832}
+  - component: {fileID: 8438615406508979217}
   m_Layer: 0
-  m_Name: PinchosBuenos
+  m_Name: PinchosRespawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1055844, y: 0.40587795}
   m_EdgeRadius: 0
---- !u!114 &5093212058775332832
+--- !u!114 &8438615406508979217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 330779503721133683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07314ca24bd900439e13fa55c1dfa73, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b45cf0d82614b9ca061c8d9ce1b942b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 5210783629486134337}
+  spikesDamage: {fileID: 11400000, guid: c0612b746707a784ab8d6a87a545eb2b, type: 2}
+  respawnPoint: {fileID: 5210783629486134337}
 --- !u!1 &5210783629486134337
 GameObject:
   m_ObjectHideFlags: 0
