@@ -183,7 +183,7 @@ public class VerticalMovement
         }
 
         bool hasCharged = false;
-        if (Input.GetKey(key: KeyCode.W) || Input.GetKeyDown(key: KeyCode.Space))
+        if (Input.GetKey(key: KeyCode.W) || Input.GetKey(key: KeyCode.Space))
         {
             this._jump();
             hasCharged = true;
