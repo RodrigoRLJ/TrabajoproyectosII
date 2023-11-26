@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ef4bff929346fa8dadb64e0d0f8691, type: 3}
   m_Name: PlayerLateralMovement
   m_EditorClassIdentifier: 
-  playerAcceleration: 0.5
-  playerMaxSpeed: 10
-  playerDeceleration: 4
+  playerAcceleration: 6
+  playerMaxSpeed: 7
+  playerDeceleration: 2

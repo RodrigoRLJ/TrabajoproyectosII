@@ -43,7 +43,7 @@ namespace Entities.Player
             this._spriteRenderer = GetComponent<SpriteRenderer>();
             this._transform = GetComponent<Transform>();
         }
-       
+
 
         private void _resetPlayerStats()
         {
@@ -60,7 +60,12 @@ namespace Entities.Player
                 this._playerCurrentHealth = this.playerStats.playerInitialHealth;
             }
 
-            /*if (this._playerCurrentHealth <= 0) { 
+            if (this._playerCurrentHealth <= 0f)
+            {
+                GameManager.ChangeScene(SceneRecords.LEVE_SELECTOR_SCREEN);
+            }
+
+            /*if (this._playerCurrentHealth <= 0) {
             }*/
 
             EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
