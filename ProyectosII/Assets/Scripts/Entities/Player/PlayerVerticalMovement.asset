@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumps: 1
   minJumpForce: 5
-  maxJumpForce: 16
-  jumpChargeSpeed: 19
+  maxJumpForce: 15
+  jumpChargeSpeed: 12
   playerMaxFallSpeed: 0
