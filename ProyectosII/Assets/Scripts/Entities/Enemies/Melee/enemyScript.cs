@@ -10,7 +10,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
 {
     
     public Transform Player;
-    public Collider2D Terreno;
+    public Collider2D obstaculo;
     private Rigidbody2D RigidBody2D;
     private Animator Animator;
     public Collision2D colision;
@@ -77,7 +77,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
         }
         //RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right, 1f);
         //Debug.Log("raycast rifht esta dando " + hit2.collider);
-        if (colision.gameObject.tag == "Terreno")
+        if (colision.gameObject.tag == "obstaculo")
         {
             choque = true;
             if (mirarIzquierda == true)
