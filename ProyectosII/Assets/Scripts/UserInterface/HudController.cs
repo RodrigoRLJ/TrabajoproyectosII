@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Entities.Player;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
-using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
+
 
 public class HudController : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI healthNumber;
 
     private void Awake()
     {
@@ -23,6 +20,7 @@ public class HudController : MonoBehaviour
 
     private void UpdateHealthValue(float playerMaxHealth, float playerCurrentHealth)
     {
-        this._slider.value = (playerCurrentHealth / playerMaxHealth);
+        this.slider.value = (playerCurrentHealth / playerMaxHealth);
+        this.healthNumber.SetText(playerCurrentHealth.ToString());
     }
 }

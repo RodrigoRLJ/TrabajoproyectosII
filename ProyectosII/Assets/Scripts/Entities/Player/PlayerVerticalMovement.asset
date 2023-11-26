@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerVerticalMovement
   m_EditorClassIdentifier: 
   jumps: 1
-  minJumpForce: 5
-  maxJumpForce: 15
-  jumpChargeSpeed: 12
+  minJumpForce: 7
+  maxJumpForce: 13
+  jumpChargeSpeed: 6
   playerMaxFallSpeed: 0
