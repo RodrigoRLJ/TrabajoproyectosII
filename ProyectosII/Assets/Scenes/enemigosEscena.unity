@@ -235,6 +235,12 @@ MonoBehaviour:
   stats: {fileID: 0}
   coordenada: []
   Player: {fileID: 0}
+  RigidBody2D: {fileID: 0}
+  siguienteCoordenada: 0
+  cambioCoordenada: 1
+  distancia: 8
+  velocidadpatrullando: 1
+  velocidadAtacando: 3
 --- !u!4 &428896930
 Transform:
   m_ObjectHideFlags: 0
@@ -244,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 428896928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.38, y: 1.78, z: 0.09481907}
+  m_LocalPosition: {x: 14.58, y: 1.43, z: 0.09481907}
   m_LocalScale: {x: 1.4136739, y: 1.8055269, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -448,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 1312203792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.94, y: -0.38, z: 0}
+  m_LocalPosition: {x: 1.07, y: -0.82, z: 0}
   m_LocalScale: {x: 1.0663, y: 1.3481, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -573,7 +579,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15675113}
+  m_Offset: {x: 0.00000035762787, y: -0.15675113}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -584,7 +590,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2047491, y: 0.68649775}
+  m_Size: {x: 1.2047484, y: 0.68649775}
   m_EdgeRadius: 0
 --- !u!50 &1312203798
 Rigidbody2D:

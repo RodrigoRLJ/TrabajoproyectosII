@@ -2,6 +2,7 @@ using Entities.EnemyMelee;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class MeleeEnemyControlerII : MonoBehaviour
@@ -16,7 +17,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
     
     int distancia = 8;
     int velocidadPatrullando = 1;
-    bool mirarIzquierda = false;
+    bool mirarIzquierda = true;
     int velocidadAtacando = 3;
 
     // Start is called before the first frame update
@@ -51,26 +52,9 @@ public class MeleeEnemyControlerII : MonoBehaviour
     void patrulla()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.075f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f);
+        Debug.Log("raycast down esta dando " + hit.collider);
         if (hit.collider == null)
-        {
-            if (mirarIzquierda == true)
-            {
-                RigidBody2D.velocity = new Vector2(1, RigidBody2D.velocity.y);
-                Animator.SetBool("Jumping", true);
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                mirarIzquierda = false;
-            }
-            if (mirarIzquierda == false)
-            {
-                RigidBody2D.velocity = new Vector2(-1, RigidBody2D.velocity.y);
-                Animator.SetBool("Jumping", true);
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                mirarIzquierda = true;
-            }
-        }
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right, 0.075f);
-        if (hit2.collider == Terreno)
         {
             if (mirarIzquierda == true)
             {
@@ -79,7 +63,24 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 mirarIzquierda = false;
             }
-            if (mirarIzquierda == false)
+            else{
+                RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                mirarIzquierda = true;
+            }
+        }
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right, 1f);
+        Debug.Log("raycast rifht esta dando " + hit2.collider);
+        if (hit2.collider == Terreno)
+        {
+            if (mirarIzquierda == true)
+            {
+                RigidBody2D.velocity = new Vector2(velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                mirarIzquierda = false;
+            }else
             {
                 RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
                 Animator.SetBool("Jumping", true);
@@ -87,7 +88,8 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 mirarIzquierda = true;
             }
         }
-        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, Vector2.left, 0.075f);
+        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, Vector2.left, 1f);
+        Debug.Log("raycast left esta dando " + hit3.collider);
         if (hit3.collider == Terreno)
         {
             if (mirarIzquierda == true)
@@ -97,8 +99,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 mirarIzquierda = false;
             }
-            if (mirarIzquierda == false)
-            {
+            else{
                 RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
                 Animator.SetBool("Jumping", true);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -114,8 +115,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 mirarIzquierda = false;
             }
-            if (mirarIzquierda == true)
-            {
+            else{
                 RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
                 Animator.SetBool("Jumping", true);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
