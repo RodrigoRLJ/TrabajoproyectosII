@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBasics Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5661619903621733620, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7090082270207509514, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_fontSize
       value: 32

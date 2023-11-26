@@ -4,16 +4,17 @@ namespace Entities.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        #region Atribute declaration
+
         private float _playerCurrentHealth;
         private int _playerCurrentPotions;
-
-        #region Atribute declaration
 
         [SerializeField] private PlayerStats playerStats;
         private Animator _animator;
         private Rigidbody2D _rigidBody2D;
         private SpriteRenderer _spriteRenderer;
         private PlayerMovement _playerMovement;
+        private Transform _transform;
 
         #endregion
 
@@ -28,10 +29,10 @@ namespace Entities.Player
                 rigidBody2D: this._rigidBody2D,
                 animator: this._animator,
                 spriteRenderer: this._spriteRenderer,
-                playerSpeedStats: this.playerStats.playerSpeedStats,
-                playerControlStats: this.playerStats.playerControlStats);
+                lateralMovementStats: this.playerStats.playerLateralMovementStats,
+                verticalMovementStats: this.playerStats.playerVerticalMovementStats,
+                transform: this._transform);
 
-            this._playerMovement.SubscribeToEvents();
             this._resetPlayerStats();
         }
 
@@ -40,26 +41,15 @@ namespace Entities.Player
             this._rigidBody2D = GetComponent<Rigidbody2D>();
             this._animator = GetComponent<Animator>();
             this._spriteRenderer = GetComponent<SpriteRenderer>();
+            this._transform = GetComponent<Transform>();
         }
-
-        public void OnDestroy()
-        {
-            this._playerMovement.UnsubscribeFromEvents();
-        }
+       
 
         private void _resetPlayerStats()
         {
             this._playerCurrentHealth = this.playerStats.playerInitialHealth;
             this._playerCurrentPotions = this.playerStats.playerInitialPotions;
             this.PlayerChangeHealth(0f);
-        }
-
-        #endregion
-
-        // Update is called once per frame
-        private void Update()
-        {
-            this._playerMovement.UpdateActions();
         }
 
         public void PlayerChangeHealth(float healthAmount)
@@ -70,8 +60,23 @@ namespace Entities.Player
                 this._playerCurrentHealth = this.playerStats.playerInitialHealth;
             }
 
+            /*if (this._playerCurrentHealth <= 0) { 
+            }*/
+
             EventSystem.PlayerNewHealth(this.playerStats.playerInitialHealth, this._playerCurrentHealth);
-            Debug.Log(this._playerCurrentHealth);
+        }
+
+        public void RelocatePlayer(Transform transform)
+        {
+            this._playerMovement.RelocatePlayer(transform);
+        }
+
+        #endregion
+
+        // Update is called once per frame
+        public void Update()
+        {
+            this._playerMovement.UpdateActions();
         }
     }
 }
