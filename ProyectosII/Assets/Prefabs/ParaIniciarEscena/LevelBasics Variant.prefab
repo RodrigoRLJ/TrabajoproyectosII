@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776994480385170990, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.099975586
+      objectReference: {fileID: 0}
+    - target: {fileID: 945536366224987033, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9399414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301013422543555971, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -440.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301013422543555971, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -204.64
+      objectReference: {fileID: 0}
     - target: {fileID: 3154397787087418464, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -20,9 +36,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBasics Variant
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 5661619903621733620, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_IsActive
       value: 1
+=======
+    - target: {fileID: 5444401644960517783, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9399414
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7090082270207509514, guid: 2a818af9ddddc6a4c862f0e7ac63ff83, type: 3}
       propertyPath: m_fontSize
