@@ -1,4 +1,5 @@
 using Entities.EnemyMelee;
+using Entities.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
     public Collider2D obstaculo;
     private Rigidbody2D RigidBody2D;
     private Animator Animator;
-    public Collision2D colision;
+    
 
 
     int distancia = 8;
@@ -53,6 +54,39 @@ public class MeleeEnemyControlerII : MonoBehaviour
             patrulla();
         }
     }
+    private void OnTriggerEnter2D(Collider2D colision)
+    {
+        if (colision.CompareTag("Player"))
+        {
+            //acesso a componente PlayerController y su metodo PlayerChangeHealy 
+            colision.GetComponent<PlayerController>().PlayerChangeHealth(-50);
+            
+        }
+        if (colision.gameObject.tag == "obstaculo")
+        {
+            choque = true;
+            if (mirarIzquierda == true)
+            {
+                RigidBody2D.velocity = new Vector2(velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                mirarIzquierda = false;
+            }
+            else
+            {
+                RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
+                Animator.SetBool("Jumping", true);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                mirarIzquierda = true;
+            }
+        }
+        else
+        {
+            choque = false;
+        }
+
+
+    }
 
     void patrulla()
     {
@@ -77,27 +111,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
         }
         //RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.right, 1f);
         //Debug.Log("raycast rifht esta dando " + hit2.collider);
-        if (colision.gameObject.tag == "obstaculo")
-        {
-            choque = true;
-            if (mirarIzquierda == true)
-            {
-                RigidBody2D.velocity = new Vector2(velocidadPatrullando, RigidBody2D.velocity.y);
-                Animator.SetBool("Jumping", true);
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                mirarIzquierda = false;
-            }else
-            {
-                RigidBody2D.velocity = new Vector2(-velocidadPatrullando, RigidBody2D.velocity.y);
-                Animator.SetBool("Jumping", true);
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                mirarIzquierda = true;
-            }
-        }
-        else
-        {
-            choque = false;
-        }
+       
         //RaycastHit2D hit3 = Physics2D.Raycast(transform.position, Vector2.left, 1f);
         //Debug.Log("raycast left esta dando " + hit3.collider);
         //if (hit3.collider == Terreno)
