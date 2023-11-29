@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2890990909621786514}
   - component: {fileID: 1069195836616264784}
   - component: {fileID: 752562575576181303}
+  - component: {fileID: 7371024045998724996}
   - component: {fileID: 1302332411560104889}
-  - component: {fileID: 6672298795717297104}
   m_Layer: 0
   m_Name: meleeEnemy
   m_TagString: EnemigoMele
@@ -134,24 +134,10 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1302332411560104889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479506463810044792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a0b77e5ff30c24aaf4d3552daffeba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  obstaculo: {fileID: 0}
---- !u!70 &6672298795717297104
-CapsuleCollider2D:
+--- !u!61 &7371024045998724996
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -182,6 +168,30 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000004998075, y: -0.1926883}
-  m_Size: {x: 0.9960499, y: 0.6877484}
-  m_Direction: 1
+  m_Offset: {x: -0.03514588, y: -0.17887035}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 1}
+    newSize: {x: 3, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1021254, y: 0.6422593}
+  m_EdgeRadius: 0
+--- !u!114 &1302332411560104889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479506463810044792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a0b77e5ff30c24aaf4d3552daffeba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  obstaculo: {fileID: 0}
