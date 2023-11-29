@@ -1,7 +1,5 @@
-using Entities.EnemyMelee;
+
 using Entities.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -17,7 +15,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
     
 
 
-    int distancia = 8;
+    int distancia = 3;
     int velocidadPatrullando = 1;
     bool mirarIzquierda = true;
     bool choque = false;
@@ -27,7 +25,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
     void Start()
     {
         this.Player = GameObject.FindWithTag("Player").transform;
-        //this.Terreno = GameObject.FindWithTag("Terreno");
+        
         RigidBody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         
@@ -44,25 +42,22 @@ public class MeleeEnemyControlerII : MonoBehaviour
         {
             RigidBody2D.velocity = new Vector2(velocidadAtacando, RigidBody2D.velocity.y);
 
-            if (Vector2.Distance(transform.position, Player.position) == 0)
-            {
-                //atacar
-            }
+            
         }
         else
         {
             patrulla();
         }
     }
-    private void OnTriggerEnter2D(Collider2D colision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (colision.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //acesso a componente PlayerController y su metodo PlayerChangeHealy 
-            colision.GetComponent<PlayerController>().PlayerChangeHealth(-50);
+            other.gameObject.GetComponent<PlayerController>().PlayerChangeHealth(-50);
             
         }
-        if (colision.gameObject.tag == "obstaculo")
+        if (other.gameObject.CompareTag("obstaculo"))
         {
             choque = true;
             if (mirarIzquierda == true)
