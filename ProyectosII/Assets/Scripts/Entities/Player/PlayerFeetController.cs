@@ -7,7 +7,7 @@ namespace Entities.Player
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Terreno"))
+            if (other.gameObject.CompareTag("Terreno") || other.gameObject.CompareTag("obstaculo"))
             {
                 EventSystem.PlayerFell();
             }
