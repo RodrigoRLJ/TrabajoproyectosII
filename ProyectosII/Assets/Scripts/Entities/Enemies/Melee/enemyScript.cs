@@ -57,7 +57,7 @@ public class MeleeEnemyControlerII : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().PlayerChangeHealth(-50);
             
         }
-        if (other.gameObject.CompareTag("obstaculo"))
+        if (other.gameObject.CompareTag("obstaculo") || other.gameObject.CompareTag("EnemigoMele"))
         {
             choque = true;
             if (mirarIzquierda == true)
