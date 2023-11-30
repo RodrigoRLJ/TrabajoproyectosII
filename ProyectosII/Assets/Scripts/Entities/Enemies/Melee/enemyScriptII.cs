@@ -15,11 +15,11 @@ public class MeleeEnemyControlerIII : MonoBehaviour
 
 
 
-    int distancia = 3;
+    
     int velocidadPatrullando = 2;
     bool mirarIzquierda = true;
     bool choque = false;
-    int velocidadAtacando = 3;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,19 +40,9 @@ public class MeleeEnemyControlerIII : MonoBehaviour
         //transform.Rotate(0, 0, angulo);
 
 
-        if (Vector2.Distance(transform.position, Player.position) <= distancia)
-        {
-
-
-
-            //RigidBody2D.velocity = new Vector2(velocidadAtacando, RigidBody2D.velocity.y);
-
-
-        }
-        else
-        {
+        
             patrulla();
-        }
+        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
