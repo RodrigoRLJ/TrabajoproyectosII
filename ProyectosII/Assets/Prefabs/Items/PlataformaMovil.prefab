@@ -146,7 +146,6 @@ MonoBehaviour:
   paradas:
   - {fileID: 2684652776065351116}
   - {fileID: 1030414509496451793}
-  - {fileID: 0}
   speed: 2
 --- !u!212 &2935519201965454321
 SpriteRenderer:
