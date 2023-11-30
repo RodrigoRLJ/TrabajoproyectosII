@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2522406145887999464, guid: f8cf3f3db68ac63469ea1ad4ab0620d4, type: 3}
       propertyPath: healthAlteration
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2460607058632095884, guid: f8cf3f3db68ac63469ea1ad4ab0620d4, type: 3}
       propertyPath: m_LocalPosition.x
