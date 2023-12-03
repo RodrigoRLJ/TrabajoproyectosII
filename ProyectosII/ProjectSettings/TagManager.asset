@@ -7,6 +7,7 @@ TagManager:
   - EnemigoMele
   - Terreno
   - obstaculo
+  - DestroyBall
   layers:
   - Default
   - TransparentFX

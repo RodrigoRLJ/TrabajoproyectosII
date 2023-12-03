@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1022758024047655641}
   - component: {fileID: 1033594934182995339}
   - component: {fileID: 5703207085406169903}
-  - component: {fileID: -3735096142209404729}
+  - component: {fileID: 368388179167542463}
   m_Layer: 0
   m_Name: SpikeBall
   m_TagString: Untagged
@@ -175,7 +175,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3735096142209404729
+--- !u!114 &368388179167542463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,8 +184,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8796200555519221211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b45cf0d82614b9ca061c8d9ce1b942b, type: 3}
+  m_Script: {fileID: 11500000, guid: fe248c2295c44604a5a01bc314554d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spikesDamage: {fileID: 11400000, guid: 9b995ccfc2a207947af0ead40d9466e1, type: 2}
-  respawnPoint: {fileID: 0}
