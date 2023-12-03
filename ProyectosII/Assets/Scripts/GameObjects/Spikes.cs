@@ -26,8 +26,11 @@ namespace GameObjects
             {
                 //Cambia su salud
                 other.GetComponent<PlayerController>().PlayerChangeHealth(-(this.spikesDamage.GetPlayerDamage()));
-                //Y muévelo
-                other.GetComponent<PlayerController>().RelocatePlayer(respawnPoint.transform);
+                if (respawnPoint != null)
+                {
+                    //Y muévelo
+                    other.GetComponent<PlayerController>().RelocatePlayer(respawnPoint.transform);   
+                }
             }
         }
     }
