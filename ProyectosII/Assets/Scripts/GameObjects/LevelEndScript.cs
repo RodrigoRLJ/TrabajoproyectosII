@@ -8,6 +8,9 @@ public class LevelEndScript : MonoBehaviour
     [SerializeField] private string nextLevelName;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.ChangeScene(nextLevelName);
+        if (other.CompareTag("Player"))
+        {
+            GameManager.ChangeScene(nextLevelName);
+        }
     }
 }
