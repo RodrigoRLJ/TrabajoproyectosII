@@ -809,7 +809,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Peque\xF1o indeseable rojo"
+  m_text: "Los slimes cr\xEDas se distinguen por su color rojo, menor tama\xF1o y
+    gran cobard\xEDa. Pero cuidado un animal con miedo es peligroso, mientras que
+    de frente huye o tiembla de miedo si le das la espalda se avalanzara sobre ti."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -996,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.722, y: -112.279}
+  m_AnchoredPosition: {x: -4.721985, y: -112.27899}
   m_SizeDelta: {x: -88.987, y: -323.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842571757
@@ -1225,7 +1227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.722, y: -112.279}
+  m_AnchoredPosition: {x: -4.721985, y: -112.27899}
   m_SizeDelta: {x: -88.987, y: -323.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269298267
@@ -1301,7 +1303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.722, y: -112.279}
+  m_AnchoredPosition: {x: -4.721985, y: -112.27899}
   m_SizeDelta: {x: -88.987, y: -323.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286869176
@@ -1475,7 +1477,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Peque\xF1o indeseable verde"
+  m_text: "Ning\xFAn robot sabe de donde salieron los slimes, pero su gran acidez
+    corroen los circuitos, afortunadament los slimes aultos no son muy agresivos
+    y simplemente se mueven por ah\xED"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1840,7 +1844,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Peque\xF1o indeseable azul"
+  m_text: "Los slimes azules son los slimes mas ancianos, debido a ello se han alimantado
+    m\xE1s sy son m\xE1s r\xE1pidos"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
