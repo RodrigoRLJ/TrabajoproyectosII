@@ -83,7 +83,6 @@ public class MeleeEnemyControlerII : MonoBehaviour
     {
 
        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f);
-       Debug.Log("raycast down esta dando " + hit.collider);
         if (hit.collider == null)
         {
             if (mirarIzquierda == true)
