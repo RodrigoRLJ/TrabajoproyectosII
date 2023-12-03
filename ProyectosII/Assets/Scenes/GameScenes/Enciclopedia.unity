@@ -809,7 +809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Las cr\xEDastienen poco tama\xF1o y mucha cobard\xEDa. Pero el panico
+  m_text: "Las cr\xEDas tienen poco tama\xF1o y mucha cobard\xEDa. Pero el panico
     es peligroso, mientras que de frente huye si le das la espalda te atacar\xE1."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1302,7 +1302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.722, y: -121.569}
+  m_AnchoredPosition: {x: -4.721985, y: -121.569}
   m_SizeDelta: {x: -88.987, y: -285.774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286869176
