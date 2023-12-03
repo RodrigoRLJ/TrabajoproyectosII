@@ -9868,6 +9868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikeBall: {fileID: 8796200555519221211, guid: 62ea5dfc883bd1d458f6deccbaf16337, type: 3}
   spawnTime: 1
+  spawnPoint: {fileID: 4165554899803857743}
 --- !u!1 &9185148007209723307
 GameObject:
   m_ObjectHideFlags: 0
@@ -14770,5 +14771,10 @@ PrefabInstance:
 --- !u!4 &4165554899803857741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358752294138806029, guid: ac067d7d3bd8a1c4a9fb05099b5a4e06, type: 3}
+  m_PrefabInstance: {fileID: 3104180944355040320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4165554899803857743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1358752294138806031, guid: ac067d7d3bd8a1c4a9fb05099b5a4e06, type: 3}
   m_PrefabInstance: {fileID: 3104180944355040320}
   m_PrefabAsset: {fileID: 0}

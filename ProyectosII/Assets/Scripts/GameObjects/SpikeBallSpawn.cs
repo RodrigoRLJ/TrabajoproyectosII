@@ -7,14 +7,16 @@ public class SpikeBallSpawn : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
    [SerializeField] private GameObject spikeBall;
-   [SerializeField] private float spawnTime; 
+   [SerializeField] private float spawnTime;
+   [SerializeField] private GameObject spawnPoint;
    private Vector3 _spawnPos;
    private float _timeSinceSpawn;
 
     // This script will simply instantiate the Prefab when the game starts.
     void Start()
     {
-        this._spawnPos = this.gameObject.transform.position;
+        this._spawnPos = this.spawnPoint.gameObject.transform.position;
+
     }
 
     void _spawn()
